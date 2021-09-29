@@ -11,19 +11,22 @@ public interface ProductionCycleRepository extends JpaRepository<ProductionCycle
       "SELECT COUNT(pc.production_cycle_id) AS 'countCycles', "
         +"pc.end_date as 'endDate' "
           + "FROM teslabattery_na.prodcycle pc\n"
-            + "WHERE pc.production_cycle_status = 1", nativeQuery = true)
+            + "WHERE pc.production_cycle_status = 1\n"
+              +"GROUP BY MONTH(pc.end_date)", nativeQuery = true)
   public List<ICyclesCountDate> countCompletedProdCyclesEachMonth();
 
   @Query(value =
       "SELECT COUNT(pc.production_cycle_id) AS 'countCycles', "
-          +"pc.end_date as 'endDate' "
+        + "pc.end_date as 'endDate' "
           + "FROM teslabattery_na.prodcycle pc\n"
-          + "WHERE pc.production_cycle_status = 2", nativeQuery = true)
+            + "WHERE pc.production_cycle_status = 0\n"
+              + "GROUP BY MONTH(pc.end_date)", nativeQuery = true)
   public List<ICyclesCountDate> countFailedProdCyclesEachMonth();
 
   @Query(value =
       "SELECT COUNT(pc.production_cycle_id) AS 'countCycles', "
-          +"pc.end_date as 'endDate' "
-          + "FROM teslabattery_na.prodcycle pc\n", nativeQuery = true)
+        +"pc.end_date as 'endDate' "
+          + "FROM teslabattery_na.prodcycle pc\n"
+            + "GROUP BY MONTH(pc.end_date)", nativeQuery = true)
   public List<ICyclesCountDate> countTotalProdCyclesEachMonth();
 }
