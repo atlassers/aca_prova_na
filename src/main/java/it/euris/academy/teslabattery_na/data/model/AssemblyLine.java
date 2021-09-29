@@ -44,6 +44,9 @@ public class AssemblyLine implements Model {
   @OneToOne(mappedBy = "assemblyLine")
   private Formula formula;
 
+  @OneToOne(mappedBy = "assemblyLine")
+  private ProductionCycle productionCycle;
+
   public AssemblyLine(Long id) {
     this.assemblyLineId = id;
   }

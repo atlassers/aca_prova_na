@@ -1,7 +1,6 @@
 package it.euris.academy.teslabattery_na.service.impl;
 
 import it.euris.academy.teslabattery_na.data.dto.RobotDto;
-import it.euris.academy.teslabattery_na.data.model.Component;
 import it.euris.academy.teslabattery_na.data.model.Robot;
 import it.euris.academy.teslabattery_na.exception.IdMustBeNullException;
 import it.euris.academy.teslabattery_na.exception.IdMustNotBeNullException;

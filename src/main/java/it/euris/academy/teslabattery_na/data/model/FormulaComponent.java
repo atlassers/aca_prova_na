@@ -29,17 +29,17 @@ import org.hibernate.annotations.Where;
 public class FormulaComponent implements Model {
 
   @EmbeddedId
-  FormulaComponentKey id;
+  private FormulaComponentKey id;
 
   @ManyToOne
   @MapsId("formulaId")
   @JoinColumn(name = "formula_id")
-  Formula formula;
+  private Formula formula;
 
   @ManyToOne
   @MapsId("componentId")
   @JoinColumn(name = "component_id")
-  Component component;
+  private Component component;
 
   @Column(name = "num_of_components")
   private Integer numberOfComponents;
