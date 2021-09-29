@@ -69,5 +69,4 @@ public class ProductionCycleServiceImpl implements ProductionCycleService {
   public List<ICyclesCountDate> countTotalProdCyclesEachMonth() {
     return productionCycleRepository.countTotalProdCyclesEachMonth();
   }
-
 }

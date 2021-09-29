@@ -12,5 +12,4 @@ public class FormulaComponentKey implements Serializable {
 
   @Column(name = "component_id")
   Long componentId;
-
 }

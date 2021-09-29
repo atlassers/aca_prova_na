@@ -1,7 +1,6 @@
 package it.euris.academy.teslabattery_na.data.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import it.euris.academy.teslabattery_na.data.archetype.Dto;
 import it.euris.academy.teslabattery_na.data.archetype.Model;
 import it.euris.academy.teslabattery_na.data.dto.FormulaComponentDto;
 import it.euris.academy.teslabattery_na.data.model.key.FormulaComponentKey;

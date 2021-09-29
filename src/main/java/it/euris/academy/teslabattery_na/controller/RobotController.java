@@ -47,5 +47,4 @@ public class RobotController {
   public Boolean delete(@PathVariable("id") Long id) {
     return robotService.delete(id);
   }
-
 }

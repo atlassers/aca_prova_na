@@ -47,5 +47,4 @@ public class FormulaController {
   public Boolean delete(@PathVariable("id") Long id) {
     return formulaService.delete(id);
   }
-
 }

@@ -48,5 +48,4 @@ public class FormulaComponentController {
   public Boolean delete(@PathVariable("id") FormulaComponentKey id) {
     return formulaComponentService.delete(id);
   }
-
 }

@@ -14,5 +14,4 @@ public interface AssemblyLineService {
   AssemblyLineDto update(AssemblyLineDto assemblyLineDto);
 
   Boolean delete(Long id);
-
 }

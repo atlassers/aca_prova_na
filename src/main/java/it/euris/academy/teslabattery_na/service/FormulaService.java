@@ -14,5 +14,4 @@ public interface FormulaService {
   FormulaDto update(FormulaDto formulaDto);
 
   Boolean delete(Long id);
-
 }
