@@ -44,6 +44,10 @@ public class AssemblyLine implements Model {
   @OneToOne(mappedBy = "assemblyLine")
   private Formula formula;
 
+  public AssemblyLine(Long id) {
+    this.assemblyLineId = id;
+  }
+
   @Override
   public AssemblyLineDto toDto() {
     return AssemblyLineDto.builder()

@@ -9,8 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -42,15 +40,27 @@ public class Formula implements Model {
   private String formulaName;
 
   @OneToOne
-  @Cascade(CascadeType.ALL)
+  @Cascade(CascadeType.MERGE)
   @JoinColumn(name = "assembly_line_id", referencedColumnName = "assembly_line_id")
   private AssemblyLine assemblyLine;
 
   @OneToMany(mappedBy = "formula")
   private Set<FormulaComponent> formulaComponents;
 
+  @Column(name = "deleted_flag")
+  @Builder.Default
+  private Boolean deleted = Boolean.FALSE;
+
+  public Formula(Long id) {
+    this.formulaId = id;
+  }
+
   @Override
   public FormulaDto toDto() {
-    return null;
+    return FormulaDto.builder()
+        .formulaIdDto(String.valueOf(formulaId))
+        .formulaNameDto(formulaName)
+        .assemblyLineIdDto(String.valueOf(assemblyLine.getAssemblyLineId()))
+        .build();
   }
 }

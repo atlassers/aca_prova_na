@@ -51,6 +51,10 @@ public class Component implements Model {
   @OneToMany(mappedBy = "component")
   private Set<FormulaComponent> formulaComponents;
 
+  public Component(Long id) {
+    this.componentId = id;
+  }
+
   @Override
   public ComponentDto toDto() {
     return ComponentDto.builder()
