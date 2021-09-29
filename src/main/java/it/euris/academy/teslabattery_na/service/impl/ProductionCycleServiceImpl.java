@@ -2,8 +2,8 @@ package it.euris.academy.teslabattery_na.service.impl;
 
 import it.euris.academy.teslabattery_na.data.dto.ProductionCycleDto;
 import it.euris.academy.teslabattery_na.data.model.ProductionCycle;
-import it.euris.academy.teslabattery_na.data.model.Robot;
 import it.euris.academy.teslabattery_na.repository.ProductionCycleRepository;
+import it.euris.academy.teslabattery_na.repository.projection.ICyclesCountDate;
 import it.euris.academy.teslabattery_na.service.ProductionCycleService;
 import java.util.List;
 import java.util.Optional;
@@ -53,4 +53,21 @@ public class ProductionCycleServiceImpl implements ProductionCycleService {
       return Boolean.FALSE;
     }
   }
+  //////////////////////////////////////////////////////////////////////////////////////////////////
+
+  @Override
+  public List<ICyclesCountDate> countCompletedProdCyclesEachMonth() {
+    return productionCycleRepository.countCompletedProdCyclesEachMonth();
+  }
+
+  @Override
+  public List<ICyclesCountDate> countFailedProdCyclesEachMonth() {
+    return productionCycleRepository.countFailedProdCyclesEachMonth();
+  }
+
+  @Override
+  public List<ICyclesCountDate> countTotalProdCyclesEachMonth() {
+    return productionCycleRepository.countTotalProdCyclesEachMonth();
+  }
+
 }

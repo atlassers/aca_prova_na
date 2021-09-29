@@ -1,8 +1,8 @@
 package it.euris.academy.teslabattery_na.data.enums;
 
 public enum PCStatus {
-  MOUNTING,
-  COMPLETE,
   FAILED,
+  COMPLETE,
+  MOUNTING,
   EXPLODED
 }

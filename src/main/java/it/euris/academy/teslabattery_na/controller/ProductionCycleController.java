@@ -2,6 +2,7 @@ package it.euris.academy.teslabattery_na.controller;
 
 import io.swagger.annotations.Api;
 import it.euris.academy.teslabattery_na.data.dto.ProductionCycleDto;
+import it.euris.academy.teslabattery_na.repository.projection.ICyclesCountDate;
 import it.euris.academy.teslabattery_na.service.ProductionCycleService;
 import java.text.ParseException;
 import java.util.List;
@@ -47,5 +48,20 @@ public class ProductionCycleController {
   public Boolean delete(@PathVariable("id") Long id) {
     return productionCycleService.delete(id);
   }
+  //////////////////////////////////////////////////////////////////////////////////////////////////
 
+  @GetMapping("/v1/queryOne")
+  public List<ICyclesCountDate> countCompletedProdCyclesEachMonth() {
+    return productionCycleService.countCompletedProdCyclesEachMonth();
+  }
+
+  @GetMapping("/v1/queryTwo")
+  public List<ICyclesCountDate> countFailedProdCyclesEachMonth() {
+    return productionCycleService.countFailedProdCyclesEachMonth();
+  }
+
+  @GetMapping("/v1/queryThree")
+  public List<ICyclesCountDate> countTotalProdCyclesEachMonth() {
+    return productionCycleService.countTotalProdCyclesEachMonth();
+  }
 }

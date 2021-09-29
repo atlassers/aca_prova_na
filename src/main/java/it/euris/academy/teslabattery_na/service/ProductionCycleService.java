@@ -1,6 +1,7 @@
 package it.euris.academy.teslabattery_na.service;
 
 import it.euris.academy.teslabattery_na.data.dto.ProductionCycleDto;
+import it.euris.academy.teslabattery_na.repository.projection.ICyclesCountDate;
 import java.util.List;
 
 public interface ProductionCycleService {
@@ -13,4 +14,11 @@ public interface ProductionCycleService {
   ProductionCycleDto update(ProductionCycleDto productionCycleDto);
 
   Boolean delete(Long id);
+  //////////////////////////////////////////////////////////////////////////////////////////////////
+
+  List<ICyclesCountDate> countCompletedProdCyclesEachMonth();
+
+  List<ICyclesCountDate> countFailedProdCyclesEachMonth();
+
+  List<ICyclesCountDate> countTotalProdCyclesEachMonth();
 }
