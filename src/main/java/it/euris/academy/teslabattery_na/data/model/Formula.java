@@ -1,5 +1,6 @@
 package it.euris.academy.teslabattery_na.data.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.euris.academy.teslabattery_na.data.archetype.Model;
 import it.euris.academy.teslabattery_na.data.dto.FormulaDto;
 import java.util.Set;
@@ -42,9 +43,11 @@ public class Formula implements Model {
   @OneToOne
   @Cascade(CascadeType.MERGE)
   @JoinColumn(name = "assembly_line_id", referencedColumnName = "assembly_line_id")
+  @JsonIgnore
   private AssemblyLine assemblyLine;
 
   @OneToMany(mappedBy = "formula")
+  @JsonIgnore
   private Set<FormulaComponent> formulaComponents;
 
   @Column(name = "deleted_flag")

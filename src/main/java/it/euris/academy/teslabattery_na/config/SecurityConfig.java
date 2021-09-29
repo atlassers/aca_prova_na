@@ -21,6 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/assemblylines/**").hasRole("manager")
         .antMatchers("/formulas/**").hasRole("manager")
         .antMatchers("/formulacomponents/**").hasRole("manager")
+        .antMatchers("/productioncycles/**").hasRole("manager")
         .antMatchers("/projectionsPlanner/**").hasRole("manager")
         .and()
         .httpBasic();

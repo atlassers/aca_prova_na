@@ -1,5 +1,6 @@
 package it.euris.academy.teslabattery_na.data.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.euris.academy.teslabattery_na.data.archetype.Model;
 import it.euris.academy.teslabattery_na.data.dto.ComponentDto;
 import it.euris.academy.teslabattery_na.data.enums.MeasureUnit;
@@ -49,6 +50,7 @@ public class Component implements Model {
   private Boolean deleted = Boolean.FALSE;
 
   @OneToMany(mappedBy = "component")
+  @JsonIgnore
   private Set<FormulaComponent> formulaComponents;
 
   public Component(Long id) {

@@ -1,5 +1,6 @@
 package it.euris.academy.teslabattery_na.data.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.euris.academy.teslabattery_na.data.archetype.Model;
 import it.euris.academy.teslabattery_na.data.dto.ProductionCycleDto;
 import it.euris.academy.teslabattery_na.data.enums.PCStatus;
@@ -51,6 +52,7 @@ public class ProductionCycle implements Model {
   @OneToOne
   @Cascade(CascadeType.MERGE)
   @JoinColumn(name = "assembly_line_id", referencedColumnName = "assembly_line_id")
+  @JsonIgnore
   private AssemblyLine assemblyLine;
 
   @Column(name = "deleted_flag")
@@ -59,6 +61,12 @@ public class ProductionCycle implements Model {
 
   @Override
   public ProductionCycleDto toDto() {
-    return null;
+    return ProductionCycleDto.builder()
+        .productionCycleIdDto(String.valueOf(productionCycleId))
+        .pcStatusDto(String.valueOf(pcStatus))
+        .startDateDto(String.valueOf(startDate))
+        .statusDateDto(String.valueOf(statusDate))
+        .endDateDto(String.valueOf(endDate))
+        .build();
   }
 }

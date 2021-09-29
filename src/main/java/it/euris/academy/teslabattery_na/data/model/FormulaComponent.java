@@ -1,5 +1,6 @@
 package it.euris.academy.teslabattery_na.data.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.euris.academy.teslabattery_na.data.archetype.Dto;
 import it.euris.academy.teslabattery_na.data.archetype.Model;
 import it.euris.academy.teslabattery_na.data.dto.FormulaComponentDto;
@@ -34,11 +35,13 @@ public class FormulaComponent implements Model {
   @ManyToOne
   @MapsId("formulaId")
   @JoinColumn(name = "formula_id")
+  @JsonIgnore
   private Formula formula;
 
   @ManyToOne
   @MapsId("componentId")
   @JoinColumn(name = "component_id")
+  @JsonIgnore
   private Component component;
 
   @Column(name = "num_of_components")

@@ -1,5 +1,6 @@
 package it.euris.academy.teslabattery_na.data.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.euris.academy.teslabattery_na.data.archetype.Model;
 import it.euris.academy.teslabattery_na.data.dto.AssemblyLineDto;
 import javax.persistence.Column;
@@ -42,9 +43,11 @@ public class AssemblyLine implements Model {
   private Boolean deleted = Boolean.FALSE;
 
   @OneToOne(mappedBy = "assemblyLine")
+  @JsonIgnore
   private Formula formula;
 
   @OneToOne(mappedBy = "assemblyLine")
+  @JsonIgnore
   private ProductionCycle productionCycle;
 
   public AssemblyLine(Long id) {
