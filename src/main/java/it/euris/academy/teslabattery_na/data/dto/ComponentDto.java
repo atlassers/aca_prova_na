@@ -28,4 +28,5 @@ public class ComponentDto implements Dto {
         .dangerous(Boolean.valueOf(dangerousDto))
         .build();
   }
+
 }
