@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class ComponentServiceImpl implements ComponentService {
 
   @Autowired
-  ComponentRepository componentRepository;
+  private ComponentRepository componentRepository;
 
   @Override
   public List<ComponentDto> getAll() {
